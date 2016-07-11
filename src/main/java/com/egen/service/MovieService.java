@@ -1,5 +1,7 @@
 package com.egen.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,4 +18,5 @@ public MovieList editTitle(String titleId,MovieList movie);
 public MovieList addTitle(MovieList movie);
 public void deleteTitle(String titleId);
 public MovieList getTitle(String titleId);
+public List<MovieList> getAllTitle();
 }

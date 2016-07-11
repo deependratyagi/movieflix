@@ -18,7 +18,7 @@ public class WebConfig {
 	{
 		InternalResourceViewResolver vs = new InternalResourceViewResolver();
 		vs.setViewClass(JstlView.class);
-		vs.setPrefix("/jsp-files/");
+		vs.setPrefix("/jspfiles/");
 		vs.setSuffix(".jsp");
 		return vs;
 		

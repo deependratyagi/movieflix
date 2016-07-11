@@ -1,5 +1,7 @@
 package com.egen.repositories;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.egen.beans.MovieList;
@@ -15,4 +17,5 @@ public interface MovieRepository {
 	public MovieList addTitle(MovieList movie);
 	public boolean deleteTitle(String titleId);
 	public MovieList getTitle(String titleId);
+	public List<MovieList> getAllTitle();
 }

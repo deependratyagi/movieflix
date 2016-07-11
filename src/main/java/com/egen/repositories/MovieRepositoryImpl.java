@@ -1,7 +1,10 @@
 package com.egen.repositories;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -95,6 +98,12 @@ public class MovieRepositoryImpl implements MovieRepository{
 	public MovieList getTitle(String titleId) {
 		MovieList m = em.find(MovieList.class, titleId);
 		return m;
+	}
+
+	@Override
+	public List<MovieList> getAllTitle() {
+		TypedQuery<MovieList> query = (TypedQuery<MovieList>)em.createQuery("select m from MovieList m order by m.list_title");
+		return query.getResultList();
 	}
 
 }
