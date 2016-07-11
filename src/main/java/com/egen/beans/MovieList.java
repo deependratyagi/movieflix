@@ -31,6 +31,8 @@ private String list_metascore;
 private String list_imdbrating;
 private String list_imdbvotes;
 private String list_type;
+private String list_avgrating;
+private int list_countusers;
 
 public String getList_imdbId() {
 	return list_imdbId;
@@ -145,5 +147,17 @@ public String getList_type() {
 }
 public void setList_type(String list_type) {
 	this.list_type = list_type;
+}
+public String getList_avgrating() {
+	return list_avgrating;
+}
+public void setList_avgrating(String list_avgrating) {
+	this.list_avgrating = list_avgrating;
+}
+public int getList_countusers() {
+	return list_countusers;
+}
+public void setList_countusers(int list_countusers) {
+	this.list_countusers = list_countusers;
 }
 }
