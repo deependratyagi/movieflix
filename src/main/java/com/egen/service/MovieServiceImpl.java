@@ -27,9 +27,9 @@ public class MovieServiceImpl implements MovieService{
 		int count = getCountUsers(titleId);
 		count = count+1;
 		double sum = ratingDouble*count;
-		System.out.println("&&&&&&&&&&&&&&&&&&"+rating);
+		
 		sum = sum+Integer.parseInt(rating.trim());
-		System.out.println("sum:"+sum+" count:"+count);
+		
 		ratingDouble = (sum)/count;
 		MovieList ml = mr.setAvgRating(titleId, ratingDouble.toString());
 		if(ml!=null){
@@ -58,5 +58,51 @@ public class MovieServiceImpl implements MovieService{
 	{
 		mr.setCountusers(titleId, count);
 	}
+
+	@Override
+	public MovieList editTitle(String titleId, MovieList movie) {
+		movie = mr.editTitle(titleId, movie);
+		if(movie!=null){
+		return movie;
+		}else{
+			throw new MovieException("Movie title not found.");
+		}
+		
+	}
+
+	@Override
+	public MovieList addTitle(MovieList movie) {
+		MovieList m = mr.addTitle(movie);
+		if(m!=null)
+		{
+			return m;
+		}
+		else{
+			throw new MovieException("Movie title already exist.");
+		}
+	}
+
+	@Override
+	public void deleteTitle(String titleId) {
+		boolean status = mr.deleteTitle(titleId);
+		if(!status)
+		{
+			throw new MovieException("Movie not found.");
+		}
+	}
+
+	@Override
+	public MovieList getTitle(String titleId) {
+		
+		MovieList m = mr.getTitle(titleId);
+		if(m!=null)
+		{
+		  return m;
+		}else{
+			throw new MovieException("Movie not found.");
+		}
+	}
+	
+	
 
 }

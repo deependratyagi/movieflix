@@ -57,4 +57,44 @@ public class MovieRepositoryImpl implements MovieRepository{
 		}
 	}
 
+	@Override
+	public MovieList editTitle(String titleId, MovieList movie) {
+		MovieList m = em.find(MovieList.class,titleId);
+		if(m!=null)
+		{
+			m.setList_title(movie.getList_title());
+			em.merge(m);
+			return m;
+		}
+		return null;
+	}
+
+	@Override
+	public MovieList addTitle(MovieList movie) {
+		MovieList m = em.find(MovieList.class,movie.getList_imdbId());
+		if(m==null)
+		{
+			em.persist(movie);
+			return movie;
+		}
+		return null;
+	}
+
+	@Override
+	public boolean deleteTitle(String titleId) {
+		MovieList m = em.find(MovieList.class, titleId);
+		if(m!=null)
+		{
+			em.remove(m);
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public MovieList getTitle(String titleId) {
+		MovieList m = em.find(MovieList.class, titleId);
+		return m;
+	}
+
 }

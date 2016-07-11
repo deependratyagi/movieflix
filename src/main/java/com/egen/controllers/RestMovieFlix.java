@@ -36,4 +36,30 @@ public class RestMovieFlix {
 		return ml;
 	}
 	
+	@RequestMapping(value="/editTitle/{id}",method=RequestMethod.PUT,produces=MediaType.APPLICATION_JSON_VALUE,consumes=MediaType.APPLICATION_JSON_VALUE)
+	public MovieList editTitle(@PathVariable("id") String titleId,@RequestBody MovieList movie)
+	{
+		MovieList m = ms.editTitle(titleId, movie);
+		return m;
+	}
+	
+	@RequestMapping(value="/addTitle",method=RequestMethod.POST,produces=MediaType.APPLICATION_JSON_VALUE,consumes=MediaType.APPLICATION_JSON_VALUE)
+	public MovieList addTitle(@RequestBody MovieList movie)
+	{
+		MovieList m = ms.addTitle(movie);
+		return m;
+	}
+	
+	@RequestMapping(value="/deleteTitle/{id}",method=RequestMethod.DELETE)
+	public void deleteTitle(@PathVariable("id") String titleId)
+	{
+		ms.deleteTitle(titleId);
+	}
+	
+	@RequestMapping(value="/getTitle/{id}",method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
+	public MovieList getTitle(@PathVariable("id") String titleId)
+	{
+		MovieList m = ms.getTitle(titleId);
+		return m;
+	}
 }

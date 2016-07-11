@@ -11,4 +11,8 @@ public interface MovieRepository {
 	public String getAvgRating(String titleId); 
 	public int getCountUsers(String titleId);
 	public void setCountusers(String titleId,int count);
+	public MovieList editTitle(String titleId,MovieList movie);
+	public MovieList addTitle(MovieList movie);
+	public boolean deleteTitle(String titleId);
+	public MovieList getTitle(String titleId);
 }
